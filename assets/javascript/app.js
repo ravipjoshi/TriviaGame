@@ -15,6 +15,12 @@ function timerDecCounter()
 { 
     timerCounter--;
     $(".time").text(timerCounter);
+    if(timerCounter==0)
+    {
+        gameStop();
+        timerStop();
+        console.log("game is started");
+    }
 }
 function setpage(){
     console.log("page is set up");
@@ -22,11 +28,12 @@ function setpage(){
 function timerStart(){
     if(timerCounter==0)
     {
+        gameStop();
         timerStop();
-        
+        console.log("game is started");
     }
     else{
-        clearInterval(timer);
+    clearInterval(timer);
     timer = setInterval(timerDecCounter,1000)
  
     console.log("game is started");
@@ -34,7 +41,7 @@ function timerStart(){
 }
 function timerStop(){
     clearInterval(timer);
-    timecounter==0;
+    timerCounter==0;
 
 }
 function gameStart(game){
@@ -47,13 +54,16 @@ function gameStart(game){
     div.text(timerCounter);
     $("#questionList").append(div);
     timerStart(); 
-    debugger; 
+    displayQuestions();
+   // debugger; 
    
 
     
 }
 function gameStop(){
+    //debugger;
     timerStop();
+    displayResult();
 }
 function displayQuestions(){
 
@@ -67,22 +77,45 @@ function displayQuestions(){
         }
         
     }
-    $("#questionList").append("<button id='Finish'> Done </botton>")
+    $("#questionList").append("<button id='finish' > Done </botton>")
 
 }
 function displayResult(){
+
+    var checkans = $("#questionList").children("input:checked");
+    console.log("answer given is :" + checkans);
+    var uncheckans = questions.length - $("#questionList").children("input:checked").length;
+    for(var i=0; i < checkans.length ; i++ )
+    { 
+        console.log(checkans[i]);
+        console.log(checkans.length)
+        if($(checkans[i]).val() === queAnswers[i])
+        {
+           correct++;
+        }
+        else
+        {
+            incorrect++;
+        }
+    }
+
+    $("#questionList").empty();
+    //debugger;
+    $("#questionList").append("<h2> Well Done </h2>");
+    $("#questionList").append("<h3> Correct Answer :"+ correct+"</h3>" ); 
+       
+    $("#questionList").append("<h3> Incorrect Answer :"+ incorrect+"</h3>" ); 
+    $("#questionList").append("<h3> Unanswered Questions :"+ uncheckans+"</h3>" ); 
+  
     
+
 }
 
-
-$(document).ready(function(){
- 
-    
-
+$(document).on("click","#startBtn", function(){
+    gameStart();
 });
 
-/*
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-  <label class="form-check-label" for="inlineRadio1">1</label>
-</div>*/
+
+$(document).on("click","#finish", function(){
+    gameStop();
+});
