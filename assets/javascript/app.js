@@ -55,13 +55,12 @@ function gameStart(game){
     $("#questionList").append(div);
     timerStart(); 
     displayQuestions();
-   // debugger; 
-   
+  
 
     
 }
 function gameStop(){
-    //debugger;
+  
     timerStop();
     displayResult();
 }
@@ -100,7 +99,7 @@ function displayResult(){
     }
 
     $("#questionList").empty();
-    //debugger;
+  
     $("#questionList").append("<h2> Well Done </h2>");
     $("#questionList").append("<h3> Correct Answer :"+ correct+"</h3>" ); 
        
