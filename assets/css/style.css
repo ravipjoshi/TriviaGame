@@ -2,7 +2,9 @@ body{
 
     background-image: url("../images/quizwiz.jpg");
     text-align: center;
-
+    font-size: 15px;
+    color :  #f4edb5; 
+    margin-top:20%;
 }
 
 .container{
@@ -12,16 +14,16 @@ body{
     box-sizing: border-box;
     padding: 5% 0;
     margin: 5% auto;
-    background-color: #fff17a;
+    background-color: #305388;
 }
 .questionLbl{
 
     position: relative;
     top: 20%;
     background-color: #ffffff;
-    margin-top: 50px;
+    margin: 50px 20px 20px 20px;
     text-align: center;
-    background-color: #fff17a;
+    background-color: #305388;
 
 }
 button{
@@ -33,35 +35,32 @@ button{
     cursor: pointer;
     background: transparent;
     border: 0;
+    color :#305388;
 }
 
 h1 {
     margin-bottom: 50px;
-    font-family: Geo, sans-serif;
-    font-size: 6.5em;
-    font-weight: bold;
-    color: blue;
+    color: #ffffff;
   }
   
   h2 {
     margin-bottom: 25px;
     font-size: 35px;
-  }
+    color :  #f4edb5; 
+}
   
-  h3 {
-    margin-bottom: 10px;
-    font-size: 25px;
-  }
-  
+   
   #startBtn {
     margin-top: 10%;
-    background: pink;
-    border: 2px solid blue;
+    background: #f4edb5;
+    border: 2px solid #1d2e64;
+  }
+
+  #finish {
+    margin-top: 10%;
+    background: #f4edb5;
+    border: 2px solid #1d2e64;
   }
  
   
-  button:hover {
-    background: pink;
-    border: 2px solid blue;
-  }
-  
+   
